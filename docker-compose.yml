@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: aquinasnetwork
+      MYSQL_USER: guille1999
+      MYSQL_PASSWORD: prueba-tecnica
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: prueba-tecnica
+      MYSQL_DATABASE: aquinasnetwork
+      MYSQL_USER: guille1999
+      MYSQL_PASSWORD: prueba-tecnica
+    ports:
+      - "3306:3306"
