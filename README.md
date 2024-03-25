@@ -17,13 +17,7 @@ Esta aplicación permite consultar la API de Rick and Morty para obtener informa
  pip install -r requirements.txt
 ```
 
-4. Inicia el servidor con el siguiente comando en la misma ruta: 
-
-```console
- uvicorn main:app --reload
-```
-
-2. Configuración de Variables de Entorno
+4. Configuración de Variables de Entorno
 
 Crea un archivo llamado .env en la raíz del proyecto con la siguiente estructura:
 
@@ -35,12 +29,18 @@ Crea un archivo llamado .env en la raíz del proyecto con la siguiente estructur
     MYSQL_DATABASE = aquinasnetwork
 ```
 
-3. Creación de la Base de Datos con docker
+5. Creación de la Base de Datos con docker
 
 para crear la base de matos de manera local debemos tener instalado docker en este, luego corremos el siguiente comando para correr la imagen de mysql:
 
 ```console
   docker compose up mysql
+```
+
+6. Inicia el servidor con el siguiente comando en la misma ruta: 
+
+```console
+ uvicorn main:app --reload
 ```
 
 ### Pasos para Usar Localmente con docker

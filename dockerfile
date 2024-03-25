@@ -1,17 +1,20 @@
 FROM python:3.9
 
+# Instalamos el cliente de MySQL a la imagen para poder detectar cuando la bd esta conectada
+RUN apt-get update && apt-get install -y --fix-missing default-mysql-client
+
 WORKDIR /app
 
-# importamos paquetes necesarios para que corra la aplicacion
+# Copiamos el archivo requirements.txt y luego instalamos las dependencias
 COPY requirements.txt .
 
 # Instalamos las dependencias del proyecto
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiamos todo el proyecto excepto las variables de entornos de prueba
-COPY --exclude .env . .
+# Copiamos todo el proyecto excepto las variables de entorno de prueba
+COPY . .
 
-# asignamos el puerto de la aplicacion
+# Asignamos el puerto de la aplicación
 EXPOSE 8000
 
 # Comando para ejecutar la aplicación cuando el contenedor se inicia
